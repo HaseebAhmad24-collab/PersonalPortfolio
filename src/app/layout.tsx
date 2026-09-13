@@ -18,12 +18,62 @@ const fragmentMono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Haseeb Ahmad | DevOps Engineer",
+  metadataBase: new URL("https://haseebxdev.online"),
+  title: {
+    default: "Visit My Portfolio | Haseeb Ahmad",
+    template: "%s | Haseeb Ahmad",
+  },
   description: "DevOps Engineer specializing in CI/CD automation, Kubernetes, AWS cloud infrastructure, and scalable production deployments.",
+  keywords: [
+    "Haseeb Ahmad",
+    "DevOps Engineer",
+    "Cloud Engineer",
+    "AWS",
+    "Kubernetes",
+    "Terraform",
+    "CI/CD",
+    "Docker",
+    "Linux",
+    "Lahore",
+    "Pakistan",
+  ],
+  authors: [{ name: "Haseeb Ahmad", url: "https://haseebxdev.online" }],
+  creator: "Haseeb Ahmad",
+  publisher: "Haseeb Ahmad",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
+  },
+  openGraph: {
+    title: "Visit My Portfolio",
+    description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security in Lahore, Pakistan.",
+    url: "https://haseebxdev.online",
+    siteName: "Haseeb Ahmad — DevOps Engineer",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Haseeb Ahmad — DevOps Engineer Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Visit My Portfolio",
+    description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://haseebxdev.online",
   },
 };
 
