@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Albert_Sans, Fragment_Mono } from "next/font/google";
+import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
 
 // Albert Sans — clean geometric sans for headings and body (matches reference site)
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${albertSans.variable} ${fragmentMono.variable}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen flex flex-col" suppressHydrationWarning>
+        <CustomCursor />
         <main className="flex-grow">
           {children}
         </main>
