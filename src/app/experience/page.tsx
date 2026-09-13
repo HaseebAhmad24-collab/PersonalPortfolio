@@ -188,7 +188,7 @@ export default function ExperiencePage() {
                 <div className="animate-float-smooth w-full flex items-center justify-center relative">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
-                    src="/cicd.png" 
+                    src="/cicd.webp" 
                     alt="DevOps CI/CD Lifecycle" 
                     className="w-full h-auto object-contain select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                     style={{

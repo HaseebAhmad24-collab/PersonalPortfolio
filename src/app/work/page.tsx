@@ -269,7 +269,7 @@ export default function WorkPage() {
                 <div className="animate-float-smooth w-full flex items-center justify-center relative">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
-                    src="/tools.png" 
+                    src="/tools.webp" 
                     alt="DevOps Tools & Cloud Ecosystem" 
                     className="w-full h-auto object-contain select-none transition-transform duration-500 ease-out group-hover:scale-[1.025]"
                     style={{

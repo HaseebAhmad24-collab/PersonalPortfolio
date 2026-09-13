@@ -151,7 +151,7 @@ export default function AboutPage() {
                   <div className="w-full h-full rounded-full overflow-hidden bg-[#eaf2ff] relative">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
-                      src="/profile_avatar.png" 
+                      src="/profile_avatar.webp" 
                       alt="Haseeb Ahmad" 
                       className="w-full h-full object-cover object-center select-none transition-transform duration-700 ease-out group-hover:scale-105"
                       draggable={false}

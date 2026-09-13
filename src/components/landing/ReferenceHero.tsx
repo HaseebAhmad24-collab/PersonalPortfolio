@@ -45,7 +45,7 @@ export default function ReferenceHero() {
       {/* Profile Image — mobile only (hidden on sm+) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/profile_cutout.png"
+        src="/profile_cutout.webp"
         alt="Haseeb Ahmad"
         className="sm:hidden select-none pointer-events-none block"
         style={{
@@ -65,7 +65,7 @@ export default function ReferenceHero() {
       {/* Profile Image — desktop/tablet only (sm+) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/profile_cutout.png"
+        src="/profile_cutout.webp"
         alt=""
         aria-hidden="true"
         className="hidden sm:block select-none pointer-events-none"
