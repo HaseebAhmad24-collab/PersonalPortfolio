@@ -55,32 +55,6 @@ export const portfolioData = {
       ]
     }
   ],
-  projects: [
-    {
-      id: "01",
-      title: "JusticeBridge",
-      role: "AI & RAG System",
-      description: "Currently building an agentic RAG system for Pakistani & Religious Law using Python & Gemini API. Implementing semantic search to retrieve accurate context from complex legal datasets.",
-      techStack: ["Python", "Gemini API", "FastAPI", "Vector Databases"],
-      image: "/projects/justicebridge.jpg" // Placeholder path
-    },
-    {
-      id: "02",
-      title: "AI-BOS",
-      role: "Business Operating System",
-      description: "Developed a full-stack system featuring Future Inventory Prediction models. Integrated an AI Assistant to automate customer support and business workflows.",
-      techStack: ["Full-Stack", "Inventory Prediction Models", "AI Assistant"],
-      image: "/projects/aibos.jpg" // Placeholder path
-    },
-    {
-      id: "03",
-      title: "DevOps & Full-Stack",
-      role: "Telecom Billing System & Infrastructure",
-      description: "Built an end-to-end Jenkins CI/CD Pipeline on AWS EC2 with Docker and SonarQube. Architected a Full-Stack Telecom Billing System to handle complex backend logic and data.",
-      techStack: ["Jenkins", "AWS EC2", "Docker", "SonarQube", "Full-Stack"],
-      image: "/projects/devops.jpg" // Placeholder path
-    }
-  ],
   education: [
     {
       id: 1,

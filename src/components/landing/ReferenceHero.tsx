@@ -1,15 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { Mail, Phone, MapPin, X, ExternalLink, Briefcase } from "lucide-react";
 
 export default function ReferenceHero() {
-  const { name, contact } = portfolioData.personalInfo;
-  const [activeModal, setActiveModal] = useState<"about" | "work" | "experience" | "education" | "contact" | null>(null);
+  const { contact } = portfolioData.personalInfo;
 
   // Continuous Typewriter Animation for "DevOps Engineer"
   const fullText = "DevOps Engineer";
@@ -39,19 +35,6 @@ export default function ReferenceHero() {
     }
     return () => clearTimeout(timer);
   }, [displayText, isDeleting]);
-
-  // Handle URL hash changes (e.g. #education from external or new tabs)
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash === "education" || hash === "experience" || hash === "work" || hash === "contact") {
-        setActiveModal(hash as "education" | "experience" | "work" | "contact");
-      }
-    };
-    handleHash();
-    window.addEventListener("hashchange", handleHash);
-    return () => window.removeEventListener("hashchange", handleHash);
-  }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#edf5ff] text-[#0f172a] flex flex-col" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>
@@ -222,192 +205,6 @@ export default function ReferenceHero() {
           </motion.div>
         </div>
       </main>
-
-      {/* 4. Elegant Minimalist Drawer / Modal for Detailed Views */}
-      {activeModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-[#0f172a]/40 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto bg-white/95 rounded-3xl p-8 md:p-12 shadow-2xl border border-white/60 text-[#0f172a]">
-            
-            {/* Close button */}
-            <button 
-              onClick={() => {
-                setActiveModal(null);
-                if (typeof window !== "undefined") {
-                  window.history.replaceState(null, "", window.location.pathname);
-                }
-              }}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition-all cursor-pointer"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Modal Content Sections */}
-            {activeModal === "about" && (
-              <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-4">
-                  <span className="text-xs font-mono text-blue-600 uppercase tracking-widest">01 / Profile</span>
-                  <h3 className="text-3xl font-bold mt-1">About Me</h3>
-                </div>
-                <p className="text-base md:text-lg text-slate-700 leading-relaxed text-justify">
-                  {portfolioData.personalInfo.bio}
-                </p>
-                <div className="pt-4">
-                  <h4 className="text-sm font-mono uppercase tracking-wider text-slate-500 mb-3">Core Skills & Expertise</h4>
-                  <div className="flex flex-wrap gap-2.5">
-                    {portfolioData.skills.map((skill, i) => (
-                      <span key={i} className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono font-medium text-slate-800">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {activeModal === "experience" && (
-              <div className="space-y-8">
-                <div className="border-b border-slate-200 pb-4">
-                  <span className="text-xs font-mono text-blue-600 uppercase tracking-widest">02 / Career History</span>
-                  <h3 className="text-3xl font-bold mt-1">Work Experience</h3>
-                </div>
-                <div className="space-y-8">
-                  {(portfolioData as any).experience?.map((exp: any, i: number) => (
-                    <div key={i} className="border-l-2 border-blue-500 pl-6 space-y-2">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <h4 className="text-xl font-bold text-slate-900">{exp.role}</h4>
-                        <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                          {exp.period}
-                        </span>
-                      </div>
-                      <p className="text-sm font-medium text-slate-600">{exp.company} • {exp.type}</p>
-                      <ul className="space-y-2 pt-2">
-                        {exp.highlights?.map((hl: string, hIdx: number) => (
-                          <li key={hIdx} className="text-sm text-slate-700 leading-relaxed flex items-start gap-2.5">
-                            <span className="text-blue-500 font-bold select-none">—</span>
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeModal === "work" && (
-              <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-4">
-                  <span className="text-xs font-mono text-blue-600 uppercase tracking-widest">03 / Projects</span>
-                  <h3 className="text-3xl font-bold mt-1">Featured Architecture & Work</h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {portfolioData.projects.map((proj) => (
-                    <div key={proj.id} className="p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-lg transition-all space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-blue-600 font-bold">#{proj.id}</span>
-                        <span className="text-xs font-medium text-slate-500">{proj.role}</span>
-                      </div>
-                      <h4 className="text-xl font-bold text-slate-900">{proj.title}</h4>
-                      <p className="text-sm text-slate-600 leading-relaxed">{proj.description}</p>
-                      <div className="flex flex-wrap gap-1.5 pt-2">
-                        {proj.techStack?.map((t, tIdx) => (
-                          <span key={tIdx} className="text-[11px] font-mono px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-700">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeModal === "education" && (
-              <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-4">
-                  <span className="text-xs font-mono text-blue-600 uppercase tracking-widest">04 / Academics</span>
-                  <h3 className="text-3xl font-bold mt-1">Education & Foundation</h3>
-                </div>
-                <div className="space-y-6">
-                  {portfolioData.education.map((edu: any) => (
-                    <div key={edu.id} className="p-6 rounded-2xl border border-slate-200 bg-slate-50 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-bold text-slate-900">{edu.degree}</h4>
-                        <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-slate-200 text-slate-800">
-                          {edu.duration || edu.status}
-                        </span>
-                      </div>
-                      <p className="text-sm text-slate-600">{edu.institution}</p>
-                      <p className="text-xs font-mono text-blue-600 font-bold pt-1">CGPA: 3.89 / 4.00</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeModal === "contact" && (
-              <div className="space-y-6">
-                <div className="border-b border-slate-200 pb-4">
-                  <span className="text-xs font-mono text-blue-600 uppercase tracking-widest">05 / Get In Touch</span>
-                  <h3 className="text-3xl font-bold mt-1">Let's Talk</h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-slate-700">
-                      <Mail className="w-5 h-5 text-blue-600" />
-                      <a href={`mailto:${contact.email}`} className="text-base hover:underline font-medium">
-                        {contact.email}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-3 text-slate-700">
-                      <Phone className="w-5 h-5 text-blue-600" />
-                      <a href={`tel:${contact.phone}`} className="text-base hover:underline font-medium">
-                        {contact.phone}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-3 text-slate-700">
-                      <MapPin className="w-5 h-5 text-blue-600" />
-                      <span className="text-base font-medium">{contact.location}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <a 
-                      href={contact.linkedin} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50/50 transition-all font-semibold text-sm"
-                    >
-                      <span className="flex items-center gap-2.5">
-                        <svg className="w-4 h-4 text-blue-600 fill-current" viewBox="0 0 24 24">
-                          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z"/>
-                        </svg>
-                        LinkedIn Profile
-                      </span>
-                      <ExternalLink className="w-4 h-4 text-slate-400" />
-                    </a>
-                    <a 
-                      href={contact.github} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50/50 transition-all font-semibold text-sm"
-                    >
-                      <span className="flex items-center gap-2.5">
-                        <svg className="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
-                        </svg>
-                        GitHub Repositories
-                      </span>
-                      <ExternalLink className="w-4 h-4 text-slate-400" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
-
-          </div>
-        </div>
-      )}
 
     </div>
   );
