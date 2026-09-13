@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://haseebxdev.online";
-  const routes = ["", "/about", "/experience", "/work", "/education"];
+  const routes = ["", "/about", "/experience", "/work", "/education", "/resume"];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

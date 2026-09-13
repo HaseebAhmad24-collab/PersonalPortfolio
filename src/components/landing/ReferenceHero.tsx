@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
 import Navbar from "@/components/layout/Navbar";
+import Link from "next/link";
+import { FileText } from "lucide-react";
 
 export default function ReferenceHero() {
   const { contact } = portfolioData.personalInfo;
@@ -191,15 +193,24 @@ export default function ReferenceHero() {
               Automating deployments, hardening pipelines, and scaling infrastructure that never sleeps.
             </p>
 
-            <a 
-              href="/work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#0f172a]/25 bg-white/80 hover:bg-white text-[#0f172a] uppercase shadow-sm hover:shadow-md transition-all cursor-pointer text-[10px] sm:text-[11px] tracking-widest font-normal inline-block"
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              EXPLORE MY WORK
-            </a>
+            <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <Link 
+                href="/work"
+                className="px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#0f172a]/25 bg-white/80 hover:bg-white text-[#0f172a] uppercase shadow-sm hover:shadow-md transition-all cursor-pointer text-[10px] sm:text-[11px] tracking-widest font-normal inline-block"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                EXPLORE MY WORK
+              </Link>
+
+              <Link 
+                href="/resume"
+                className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-blue-600/30 bg-blue-50/70 hover:bg-blue-100 text-blue-700 uppercase shadow-xs hover:shadow-sm transition-all cursor-pointer text-[10px] sm:text-[11px] tracking-widest font-medium inline-flex items-center gap-1.5"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>VIEW CV</span>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Bottom Right Monospaced Tagline — hidden on mobile to avoid clutter */}

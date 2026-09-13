@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolio";
+import ResumeModal from "@/components/ui/ResumeModal";
+import { FileText } from "lucide-react";
 
 const links = [
   { href: "/about", label: "ABOUT" },
@@ -16,6 +18,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const { contact } = portfolioData.personalInfo;
   const [open, setOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   return (
     <>
@@ -63,7 +66,18 @@ export default function Navbar() {
         </div>
 
         {/* Right: CTA + Mobile Hamburger */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Resume Preview & Download Button */}
+          <button
+            onClick={() => setResumeOpen(true)}
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-blue-600/30 bg-blue-50/50 hover:bg-blue-100/70 text-blue-700 uppercase shadow-2xs hover:shadow-xs transition-all text-[11px] tracking-widest font-medium cursor-pointer"
+            style={{ fontFamily: "var(--font-mono)" }}
+            title="Preview & Download CV"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>RESUME</span>
+          </button>
+
           <a
             href={contact.linkedin}
             target="_blank"
@@ -103,7 +117,7 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       <div
         className={`md:hidden relative z-20 bg-[#edf5ff] border-b border-blue-900/10 overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="flex flex-col px-5 py-4 gap-0">
@@ -128,6 +142,25 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Mobile Resume Trigger */}
+          <button
+            onClick={() => {
+              setOpen(false);
+              setResumeOpen(true);
+            }}
+            className="flex items-center justify-between py-3.5 border-b border-blue-900/8 text-xs tracking-[0.2em] uppercase text-blue-600 font-semibold cursor-pointer text-left w-full"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            <span className="flex items-center gap-2">
+              <FileText className="w-3.5 h-3.5" />
+              VIEW RESUME / CV
+            </span>
+            <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-mono font-medium">
+              PDF
+            </span>
+          </button>
+
           {/* Mobile CTA */}
           <a
             href={contact.linkedin}
@@ -141,6 +174,9 @@ export default function Navbar() {
           </a>
         </nav>
       </div>
+
+      {/* Resume Preview & Download Modal */}
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </>
   );
 }
