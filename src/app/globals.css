@@ -27,8 +27,8 @@
   }
 }
 
-/* Professional Minimal Cursor Rules (Desktop Only) */
-@media (pointer: fine) {
+/* Professional Minimal Cursor Rules (Mouse/Trackpad Only — never touch screens) */
+@media (pointer: fine) and (hover: hover) {
   html.has-custom-cursor,
   html.has-custom-cursor body,
   html.has-custom-cursor a,

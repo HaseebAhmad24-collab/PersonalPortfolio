@@ -21,7 +21,9 @@ export default function CustomCursor() {
 
   useEffect(() => {
     // Only activate on devices with a fine pointer (mouse/trackpad), never on touch screens
-    if (typeof window === "undefined" || !window.matchMedia("(pointer: fine)").matches) {
+    // (pointer: fine) AND (hover: hover) = true mouse/trackpad ONLY
+    // Touch screens always have (hover: none), so this never fires on mobile
+    if (typeof window === "undefined" || !window.matchMedia("(pointer: fine) and (hover: hover)").matches) {
       return;
     }
 
