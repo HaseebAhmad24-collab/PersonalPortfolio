@@ -40,11 +40,32 @@ export default function ReferenceHero() {
   return (
     <div className="relative w-full min-h-screen bg-[#edf5ff] text-[#0f172a] flex flex-col" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>
       
-      {/* Profile Image — hidden on mobile (sm:block), visible from sm+ */}
+      {/* Profile Image — visible on all screens, smaller on mobile */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/profile_cutout.png"
         alt="Haseeb Ahmad"
+        className="select-none pointer-events-none block"
+        style={{
+          position: 'absolute',
+          bottom: '-10vh',
+          right: '-2%',
+          height: '75vh',
+          width: 'auto',
+          objectFit: 'contain',
+          objectPosition: 'bottom',
+          zIndex: 5,
+          opacity: 0.55,
+          maskImage: 'linear-gradient(to top, transparent 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.85) 20%, black 30%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to top, transparent 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.85) 20%, black 30%, black 100%)',
+        }}
+      />
+      {/* Same image, larger for sm+ screens (desktop experience) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/profile_cutout.png"
+        alt=""
+        aria-hidden="true"
         className="hidden sm:block select-none pointer-events-none"
         style={{
           position: 'absolute',
@@ -55,6 +76,7 @@ export default function ReferenceHero() {
           objectFit: 'contain',
           objectPosition: 'bottom',
           zIndex: 5,
+          opacity: 1,
           maskImage: 'linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.95) 22%, black 30%, black 100%)',
           WebkitMaskImage: 'linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 14%, rgba(0,0,0,0.95) 22%, black 30%, black 100%)',
         }}
