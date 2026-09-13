@@ -26,7 +26,7 @@ export default function Education() {
         </div>
 
         <div className="md:w-2/3 border-l border-white/10 pl-8 md:pl-12 relative py-4">
-          {education.map((edu, index) => (
+          {education.map((edu: any, index: number) => (
             <motion.div
               key={edu.id}
               initial={{ opacity: 0, y: 30 }}

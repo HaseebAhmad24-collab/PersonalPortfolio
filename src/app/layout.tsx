@@ -1,24 +1,35 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Albert_Sans, Fragment_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-// Inter font for highly legible body text and system labels
-const inter = Inter({
+// Albert Sans — clean geometric sans for headings and body (matches reference site)
+const albertSans = Albert_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-albert",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-// Syne font for large scale, experimental and premium headings
-const syne = Syne({
+// Fragment Mono — technical monospace for labels, nav, badges (matches reference site)
+const fragmentMono = Fragment_Mono({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-mono",
+  weight: ["400"],
+});
+
+// Space Grotesk — distinctive modern tech/engineering font
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Haseeb Ahmad | Full-Stack AI Developer",
-  description: "I'm Haseeb Ahmad — a Full-Stack AI Developer who transforms ideas into production-ready, AI-powered products that ship.",
+  title: "Haseeb Ahmad | DevOps Engineer",
+  description: "DevOps Engineer specializing in CI/CD automation, Kubernetes, AWS cloud infrastructure, and scalable production deployments.",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
@@ -28,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`} suppressHydrationWarning>
-      <body className="antialiased selection:bg-[#00F5D4] selection:text-black min-h-screen flex flex-col" suppressHydrationWarning>
+    <html lang="en" className={`${albertSans.variable} ${fragmentMono.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+      <body className="antialiased min-h-screen flex flex-col" suppressHydrationWarning>
         <main className="flex-grow">
           {children}
         </main>

@@ -3,15 +3,15 @@
 import Marquee from "react-fast-marquee";
 
 const row1 = [
-  "Django", "REST Framework", "Docker", "Jenkins", "AWS", 
-  "Git/GitHub", "Linux", "Supabase", "Vercel", "MySQL", 
-  "Wazuh", "RAG", "AI/ML", "FastAPI", "LangChain"
+  "AWS", "Kubernetes", "Docker", "Terraform", "Ansible", 
+  "Jenkins", "GitLab CI", "Linux Admin", "EKS", "ECS", 
+  "Prometheus", "Grafana", "AWS CloudWatch", "Route 53"
 ];
 
 const row2 = [
-  "Python", "Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", 
-  "Redis", "CI/CD", "SonarQube", "EC2", "Vector DB", 
-  "Gemini API", "Prompt Engineering", "Framer Motion", "Figma", "Agentic AI"
+  "Application Load Balancer", "AWS VPC", "Auto Scaling", "IAM & Security", 
+  "AWS S3 & RDS", "Secrets Manager", "Nginx", "Git / GitHub", 
+  "Multi-Env CI/CD", "Let's Encrypt SSL", "Python", "CloudFront"
 ];
 
 const SkillBadge = ({ skill }: { skill: string }) => (

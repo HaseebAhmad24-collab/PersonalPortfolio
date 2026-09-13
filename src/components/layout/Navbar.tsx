@@ -10,9 +10,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: "Work", href: "#work" },
-    { name: "Education", href: "#education" },
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Education", href: "#education" },
+    { name: "Work", href: "#work" },
     { name: "Contact", href: "#contact" },
   ];
 
