@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { Mail } from "lucide-react";
+import { Mail, CheckCircle2, ExternalLink } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 
 export default function AboutPage() {
@@ -1227,7 +1227,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 8. Section 5: Vision & Signature Framework (Production-ready reliability) */}
+      {/* 8. Section 5: Peer & Academic Endorsements (05 ENDORSEMENTS) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
@@ -1239,7 +1239,214 @@ export default function AboutPage() {
                   className="text-[11px] tracking-[0.25em] text-[#64748b] font-medium uppercase"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
-                  05 &nbsp;VISION
+                  05 &nbsp;ENDORSEMENTS
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Title, Narrative, and Verified Recommendation Cards */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="lg:col-span-9 max-w-3xl flex flex-col"
+            >
+              
+              {/* Institution Spec Ribbon */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-blue-600 inline-block" />
+                <span 
+                  className="text-xs font-mono tracking-wider text-blue-600 uppercase font-semibold"
+                >
+                  VERIFIED INDUSTRY &amp; ACADEMIC RECOMMENDATIONS
+                </span>
+              </div>
+
+              {/* Section Heading */}
+              <h2 
+                className="text-3xl sm:text-4xl md:text-[42px] font-light text-[#0f172a] tracking-tight leading-tight mb-2"
+                style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 300 }}
+              >
+                Grounded in academia.<br />
+                Proven in production.
+              </h2>
+
+              {/* Sub-headline / Spec Tag */}
+              <p 
+                className="text-xs font-mono tracking-widest text-[#64748b] uppercase mb-8"
+              >
+                PEER VALIDATION &middot; LINKEDIN ENDORSEMENTS &middot; 2026
+              </p>
+
+              {/* Intro Narrative */}
+              <p 
+                className="text-sm sm:text-[15px] text-[#334155] leading-[1.8] font-normal text-justify mb-10"
+                style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}
+              >
+                Engineering credibility is proven through real-world collaboration. These verified endorsements reflect the discipline, analytical rigor, and production ownership demonstrated under university instruction and enterprise DevOps mentorship.
+              </p>
+
+              {/* Recommendations Container */}
+              <div className="flex flex-col gap-6 mb-4">
+                
+                {/* Recommendation 1: Dr. Muhammad Awais */}
+                <motion.div 
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                  className="rounded-2xl border border-blue-900/15 bg-white/90 p-6 sm:p-8 md:p-9 shadow-xs select-none"
+                >
+                  {/* Header: Profile, Identity, Verified Badge & LinkedIn Link */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b border-slate-200/80">
+                    <div className="flex items-start gap-3.5">
+                      {/* Monogram Badge */}
+                      <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-mono font-bold text-sm shrink-0 shadow-xs mt-0.5">
+                        MA
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h3 
+                            className="text-base sm:text-lg font-medium text-[#0f172a] tracking-tight"
+                            style={{ fontFamily: 'var(--font-albert)' }}
+                          >
+                            Muhammad Awais, P.hD
+                          </h3>
+                          <CheckCircle2 className="w-4 h-4 text-blue-600 fill-blue-50 shrink-0" />
+                        </div>
+                        <p className="text-xs text-[#64748b] leading-snug mt-0.5">
+                          Director AI &amp; Smart Tech @Qubit Dynamics &middot; AI Architect &middot; PhD Computer Science
+                        </p>
+                        <span className="inline-block text-[10px] font-mono text-blue-600 font-medium uppercase mt-1">
+                          September 10, 2026 &middot; Taught Haseeb in Operating Systems &amp; AI
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* LinkedIn Profile CTA */}
+                    <a 
+                      href="https://www.linkedin.com/in/muhammad-awais-p-hd-7b475270/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="self-start sm:self-center inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-blue-900/15 bg-[#edf5ff]/80 hover:bg-blue-100/70 text-blue-700 text-[11px] font-mono tracking-wider uppercase transition-all shadow-2xs shrink-0 cursor-pointer"
+                      title="View Profile on LinkedIn"
+                    >
+                      <span>PROFILE</span>
+                      <ExternalLink className="w-3 h-3 text-blue-600" />
+                    </a>
+                  </div>
+
+                  {/* Quote Body with Minimalist Left Accent */}
+                  <div className="my-5 pl-4 sm:pl-5 border-l-2 border-blue-600/70">
+                    <p 
+                      className="text-xs sm:text-[13.5px] text-[#334155] leading-[1.8] font-normal italic"
+                      style={{ fontFamily: 'var(--font-albert)' }}
+                    >
+                      &ldquo;I had the pleasure of teaching Haseeb in Operating Systems and Artificial Intelligence. He demonstrated strong learning ability, enthusiasm, and a solid understanding of the concepts covered. His curiosity and willingness to learn stood out throughout the courses. I am confident that Haseeb will continue to grow and make valuable contributions in his professional journey. I wish him all the best for his future endeavors.&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Footer Pillar Tags */}
+                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
+                    <span className="text-[10px] font-mono tracking-wider text-[#64748b] uppercase font-medium bg-[#f8faff] px-2.5 py-1 rounded-md border border-slate-200">
+                      OPERATING SYSTEMS
+                    </span>
+                    <span className="text-[10px] font-mono tracking-wider text-[#64748b] uppercase font-medium bg-[#f8faff] px-2.5 py-1 rounded-md border border-slate-200">
+                      ARTIFICIAL INTELLIGENCE
+                    </span>
+                    <span className="text-[10px] font-mono tracking-wider text-emerald-700 uppercase font-medium bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                      ACADEMIC EXCELLENCE
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Recommendation 2: Muhammad Faran Tahir */}
+                <motion.div 
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                  className="rounded-2xl border border-blue-900/15 bg-white/90 p-6 sm:p-8 md:p-9 shadow-xs select-none"
+                >
+                  {/* Header: Profile, Identity, Verified Badge & LinkedIn Link */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b border-slate-200/80">
+                    <div className="flex items-start gap-3.5">
+                      {/* Monogram Badge */}
+                      <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-slate-700 to-[#0f172a] flex items-center justify-center text-white font-mono font-bold text-sm shrink-0 shadow-xs mt-0.5">
+                        FT
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h3 
+                            className="text-base sm:text-lg font-medium text-[#0f172a] tracking-tight"
+                            style={{ fontFamily: 'var(--font-albert)' }}
+                          >
+                            Muhammad Faran Tahir
+                          </h3>
+                          <CheckCircle2 className="w-4 h-4 text-blue-600 fill-blue-50 shrink-0" />
+                        </div>
+                        <p className="text-xs text-[#64748b] leading-snug mt-0.5">
+                          Senior DevOps Engineer &amp; Team Lead @NETSOL Technologies Inc. &middot; Multi-Cloud Solutions
+                        </p>
+                        <span className="inline-block text-[10px] font-mono text-blue-600 font-medium uppercase mt-1">
+                          September 10, 2026 &middot; Managed Haseeb directly at NETSOL
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* LinkedIn Profile CTA */}
+                    <a 
+                      href="https://www.linkedin.com/in/muhammad-faran-tahir/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="self-start sm:self-center inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-blue-900/15 bg-[#edf5ff]/80 hover:bg-blue-100/70 text-blue-700 text-[11px] font-mono tracking-wider uppercase transition-all shadow-2xs shrink-0 cursor-pointer"
+                      title="View Profile on LinkedIn"
+                    >
+                      <span>PROFILE</span>
+                      <ExternalLink className="w-3 h-3 text-blue-600" />
+                    </a>
+                  </div>
+
+                  {/* Quote Body with Minimalist Left Accent */}
+                  <div className="my-5 pl-4 sm:pl-5 border-l-2 border-blue-600/70">
+                    <p 
+                      className="text-xs sm:text-[13.5px] text-[#334155] leading-[1.8] font-normal italic"
+                      style={{ fontFamily: 'var(--font-albert)' }}
+                    >
+                      &ldquo;During his internship under my supervision, Haseeb consistently demonstrated a strong passion for technology, particularly in the fields of DevOps, AI and Machine Learning. He is an excellent problem solver with sharp analytical skills, and he would be a valuable addition to any team.&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Footer Pillar Tags */}
+                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
+                    <span className="text-[10px] font-mono tracking-wider text-[#64748b] uppercase font-medium bg-[#f8faff] px-2.5 py-1 rounded-md border border-slate-200">
+                      NETSOL TECHNOLOGIES
+                    </span>
+                    <span className="text-[10px] font-mono tracking-wider text-[#64748b] uppercase font-medium bg-[#f8faff] px-2.5 py-1 rounded-md border border-slate-200">
+                      DEVOPS &amp; CLOUD PIPELINES
+                    </span>
+                    <span className="text-[10px] font-mono tracking-wider text-emerald-700 uppercase font-medium bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                      ANALYTICAL PROBLEM SOLVING
+                    </span>
+                  </div>
+                </motion.div>
+
+              </div>
+
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Section 6: Vision & Signature Framework (Production-ready reliability) */}
+      <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
+            
+            {/* Left Column: Section Spec Index */}
+            <div className="lg:col-span-3 select-none">
+              <div className="sticky top-28 flex items-center gap-3">
+                <span 
+                  className="text-[11px] tracking-[0.25em] text-[#64748b] font-medium uppercase"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  06 &nbsp;VISION
                 </span>
               </div>
             </div>
