@@ -1108,9 +1108,9 @@ export default function EducationPage() {
               {/* Architectural Schematic Blueprint Card (Pure Black & Slate Line-Art) */}
               <motion.div 
                 whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                className="w-full rounded-2xl border border-blue-900/15 bg-white/85 p-6 sm:p-8 md:p-10 shadow-xs mb-10 select-none overflow-x-auto"
+                className="w-full rounded-2xl border border-blue-900/15 bg-white/85 p-3 sm:p-6 md:p-10 shadow-xs mb-10 select-none overflow-hidden"
               >
-                <div className="min-w-[680px]">
+                <div className="w-full">
                   <svg 
                     className="w-full h-auto text-[#0f172a]" 
                     viewBox="0 0 880 500" 
