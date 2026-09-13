@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
 import { Mail } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
 
 export default function AboutPage() {
   const { name, contact } = portfolioData.personalInfo;
@@ -66,68 +66,8 @@ export default function AboutPage() {
         }}
       />
 
-      {/* 2. Top Navigation Bar — Solid Clean Background, Zero Grid */}
-      <header className="relative z-30 w-full px-8 md:px-14 py-7 flex items-center justify-between bg-[#edf5ff] border-b border-blue-900/10">
-        <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div 
-              className="w-8 h-8 rounded-full border border-[#0f172a]/80 group-hover:border-blue-600 group-hover:bg-blue-50 flex items-center justify-center text-xs transition-colors" 
-              style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}
-            >
-              H
-            </div>
-            <span 
-              className="text-xs tracking-[0.2em] text-[#0f172a] uppercase group-hover:text-blue-600 transition-colors" 
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              HASEEB AHMAD
-            </span>
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-8">
-            <Link 
-              href="/about" 
-              className="text-xs tracking-[0.18em] text-blue-600 font-semibold transition-colors uppercase cursor-pointer flex items-center gap-1.5" 
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              ABOUT
-            </Link>
-            <Link 
-              href="/experience" 
-              className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" 
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              EXPERIENCE
-            </Link>
-            <Link 
-              href="/work" 
-              className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" 
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              WORK
-            </Link>
-            <Link 
-              href="/education" 
-              className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" 
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              EDUCATION
-            </Link>
-          </nav>
-        </div>
-
-        {/* Right Action: Let's Talk */}
-        <a 
-          href={contact.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-2.5 rounded-full border border-[#0f172a]/25 bg-white/90 hover:bg-white text-[#0f172a] uppercase shadow-xs hover:shadow-md transition-all cursor-pointer text-[11px] tracking-widest font-normal" 
-          style={{ fontFamily: 'var(--font-mono)' }}
-        >
-          LET'S TALK
-        </a>
-      </header>
+      {/* 2. Top Navigation Bar */}
+      <Navbar />
 
       {/* 3. Hero Header Section (Clean Awais-Style Minimalist Typography & Blueprint Grid) */}
       <section className="relative z-10 w-full border-b border-blue-900/15 overflow-hidden">
@@ -146,8 +86,8 @@ export default function AboutPage() {
 
 
 
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 pt-14 md:pt-20 pb-16 md:pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 pt-10 sm:pt-14 md:pt-20 pb-12 sm:pb-16 md:pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
             
             {/* Left Column: Ultra-minimal typography matching Awais reference screenshot */}
             <motion.div 
@@ -168,7 +108,7 @@ export default function AboutPage() {
               </div>
 
               {/* Massive Architectural Running Typewriter Headline with Zero Shift & Clean Clearance */}
-              <div className="min-h-[110px] sm:min-h-[135px] md:min-h-[155px] lg:min-h-[175px] flex items-start">
+              <div className="min-h-[80px] sm:min-h-[110px] md:min-h-[155px] lg:min-h-[175px] flex items-start">
                 <h1 
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[74px] font-light tracking-tight text-[#0f172a] uppercase leading-[1.08]"
                   style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 300 }}
@@ -179,7 +119,7 @@ export default function AboutPage() {
 
               {/* Sub-headline: PIPELINE TO PRODUCTION. (with light 'TO') */}
               <h2 
-                className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-[#0f172a] mt-8 uppercase flex items-center gap-3 select-none"
+                className="text-xl sm:text-2xl md:text-4xl font-normal tracking-tight text-[#0f172a] mt-5 sm:mt-8 uppercase flex items-center gap-3 select-none"
                 style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}
               >
                 <span>PIPELINE</span>
@@ -188,12 +128,12 @@ export default function AboutPage() {
               </h2>
             </motion.div>
 
-            {/* Right Column: Perfectly Fitted Circle Avatar with Butter-Smooth Hardware Acceleration */}
+            {/* Right Column: Circular Avatar — shown first on mobile (order-first), right side on desktop */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:col-span-4 flex flex-col items-start md:items-center text-left md:text-center pl-0 md:pl-6 select-none"
+              className="md:col-span-4 flex flex-col items-center md:items-center text-center md:text-center pl-0 md:pl-6 select-none order-first md:order-last mb-6 md:mb-0"
             >
               {/* Circular Avatar Frame — Pure GPU Composited Animation */}
               <div className="relative group cursor-pointer">
@@ -282,7 +222,7 @@ export default function AboutPage() {
       {/* 4. Section 1: The Narrative / Academic Foundation (Clean Background, No Grid) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
         
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 py-16 md:py-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-10 sm:py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             
             {/* Left Column: Section Spec Index */}
@@ -517,7 +457,7 @@ export default function AboutPage() {
 
       {/* 5. Section 2: Core Pillars & Metrics (Awais 2x2 Grid + Bottom Stats) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 py-20 md:py-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             
             {/* Left Column: Section Spec Index */}
@@ -736,7 +676,7 @@ export default function AboutPage() {
 
       {/* 6. Section 3: Methodology & Workflow (Three pillars, one practice) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 py-20 md:py-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             
             {/* Left Column: Section Spec Index */}
@@ -1125,7 +1065,7 @@ export default function AboutPage() {
 
       {/* 7. Section 4: Education & Training (Where I was trained) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 py-20 md:py-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             
             {/* Left Column: Section Spec Index */}
@@ -1289,7 +1229,7 @@ export default function AboutPage() {
 
       {/* 8. Section 5: Vision & Signature Framework (Production-ready reliability) */}
       <section className="relative z-10 w-full overflow-hidden border-b border-blue-900/15 bg-[#edf5ff]">
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-14 py-20 md:py-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-14 py-12 sm:py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             
             {/* Left Column: Section Spec Index */}
@@ -1659,7 +1599,7 @@ export default function AboutPage() {
       </section>
 
       {/* 9. Minimalist Architectural Blueprint Footer */}
-      <footer className="relative z-10 w-full border-t border-blue-900/15 bg-[#edf5ff] py-12 px-8 md:px-14 select-none">
+      <footer className="relative z-10 w-full border-t border-blue-900/15 bg-[#edf5ff] py-10 px-5 sm:px-8 md:px-14 select-none">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           
           {/* Left: Brand Spec */}
@@ -1714,3 +1654,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

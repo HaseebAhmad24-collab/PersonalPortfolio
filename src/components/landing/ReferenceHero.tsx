@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
+import Navbar from "@/components/layout/Navbar";
 
 export default function ReferenceHero() {
   const { contact } = portfolioData.personalInfo;
@@ -37,14 +38,14 @@ export default function ReferenceHero() {
   }, [displayText, isDeleting]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#edf5ff] text-[#0f172a] flex flex-col" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>
+    <div className="relative w-full min-h-screen bg-[#edf5ff] text-[#0f172a] flex flex-col" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>
       
-      {/* Profile Image — absolute, bottom anchored, right side, seamless bottom emergence */}
+      {/* Profile Image — hidden on mobile (sm:block), visible from sm+ */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/profile_cutout.png"
         alt="Haseeb Ahmad"
-        className="select-none pointer-events-none"
+        className="hidden sm:block select-none pointer-events-none"
         style={{
           position: 'absolute',
           bottom: '-28vh',
@@ -71,7 +72,7 @@ export default function ReferenceHero() {
         }}
       />
 
-      {/* Blueprint Grid Lines Pattern — tuned for clear, elegant visibility */}
+      {/* Blueprint Grid Lines Pattern */}
       <div 
         className="absolute inset-0 pointer-events-none z-0 opacity-85"
         style={{
@@ -83,12 +84,11 @@ export default function ReferenceHero() {
         }}
       />
 
-      {/* Blueprint Architectural Geometry Curves / Arcs */}
+      {/* Blueprint Architectural Geometry Curves / Arcs — hidden on mobile */}
       <svg 
-        className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
+        className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Large sweeping architectural circle arc centered on portrait */}
         <circle 
           cx="68%" 
           cy="52%" 
@@ -116,59 +116,47 @@ export default function ReferenceHero() {
         />
       </svg>
 
-      <header className="relative z-20 w-full px-8 md:px-14 py-8 flex items-center justify-between">
-        {/* Left: Logo + Nav Links together */}
-        <div className="flex items-center gap-10">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-[#0f172a]/80 flex items-center justify-center text-xs" style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>H</div>
-            <span className="text-xs tracking-[0.2em] text-[#0f172a] uppercase" style={{ fontFamily: 'var(--font-mono)' }}>HASEEB AHMAD</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="/about" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" style={{ fontFamily: 'var(--font-mono)' }}>ABOUT</a>
-            <a href="/experience" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" style={{ fontFamily: 'var(--font-mono)' }}>EXPERIENCE</a>
-            <a href="/work" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" style={{ fontFamily: 'var(--font-mono)' }}>WORK</a>
-            <a href="/education" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.18em] text-[#475569] hover:text-[#0f172a] transition-colors uppercase cursor-pointer" style={{ fontFamily: 'var(--font-mono)' }}>EDUCATION</a>
-          </nav>
-        </div>
-        {/* Right: CTA */}
-        <a 
-          href={contact.linkedin} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="px-6 py-2.5 rounded-full border border-[#0f172a]/25 bg-white/80 hover:bg-white text-[#0f172a] uppercase shadow-sm hover:shadow-md transition-all cursor-pointer text-[11px] tracking-widest" 
-          style={{ fontFamily: 'var(--font-mono)' }}
-        >
-          LET'S TALK
-        </a>
-      </header>
+      {/* Shared Mobile-Responsive Navbar */}
+      <div className="relative z-20">
+        <Navbar />
+      </div>
 
-      {/* 3. Hero Body Content (Exact 2-Column Split Viewport Layout) */}
-      <main className="relative z-10 w-full flex-1 px-8 md:px-14 flex flex-col justify-between" style={{ paddingBottom: '28px', paddingTop: '8px', minHeight: 0 }}>
+      {/* Hero Body Content */}
+      <main className="relative z-10 w-full flex-1 px-5 sm:px-8 md:px-14 flex flex-col justify-between" style={{ paddingBottom: '32px', paddingTop: '8px', minHeight: 0 }}>
         
         {/* Upper Title Cluster */}
         <div className="w-full flex-1 flex items-center relative">
-          {/* Left Typography Block — z-20 so it stays above the image */}
+          {/* Typography Block — z-20 so it stays above the image */}
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="z-20 flex flex-col justify-center select-none max-w-xl"
           >
-            <h1 style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 300 }} className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] tracking-tight text-[#0f172a] leading-[1.05]">
+            <h1
+              style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 300 }}
+              className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[76px] tracking-tight text-[#0f172a] leading-[1.05]"
+            >
               Haseeb Ahmad
             </h1>
-            <h2 style={{ fontFamily: 'var(--font-space), Space Grotesk, sans-serif', fontWeight: 500 }} className="text-3xl sm:text-4xl md:text-5xl tracking-tight text-[#0f172a] mt-2 flex items-center min-h-[1.25em]">
+            <h2
+              style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 500 }}
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-tight text-[#0f172a] mt-2 flex items-center min-h-[1.25em]"
+            >
               <span>{displayText}</span>
               <span className="inline-block w-[2.5px] md:w-[3px] h-[0.82em] bg-blue-600 ml-1.5 animate-pulse rounded-full" />
             </h2>
-            <p style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 400 }} className="text-xl sm:text-2xl md:text-[26px] text-[#64748b] mt-3 tracking-tight">
+            <p
+              style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif', fontWeight: 400 }}
+              className="text-base sm:text-xl md:text-[26px] text-[#64748b] mt-3 tracking-tight"
+            >
               Building Production&#8209;Ready Cloud Infrastructure
             </p>
           </motion.div>
         </div>
 
         {/* Bottom Bar: Intro Micro-copy & Taglines */}
-        <div className="w-full flex items-end justify-between pt-2 pb-4 z-20">
+        <div className="w-full flex items-end justify-between pt-2 pb-2 z-20 gap-4">
           
           {/* Bottom Left Micro-copy + CTA */}
           <motion.div 
@@ -177,7 +165,7 @@ export default function ReferenceHero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col items-start gap-3.5"
           >
-            <p style={{ fontFamily: 'var(--font-albert)' }} className="text-sm md:text-[15px] text-[#334155] font-normal tracking-normal max-w-sm">
+            <p style={{ fontFamily: 'var(--font-albert)' }} className="text-xs sm:text-sm md:text-[15px] text-[#334155] font-normal tracking-normal max-w-[240px] sm:max-w-sm">
               Automating deployments, hardening pipelines, and scaling infrastructure that never sleeps.
             </p>
 
@@ -185,19 +173,19 @@ export default function ReferenceHero() {
               href="/work"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-full border border-[#0f172a]/25 bg-white/80 hover:bg-white text-[#0f172a] uppercase shadow-sm hover:shadow-md transition-all cursor-pointer text-[11px] tracking-widest font-normal inline-block"
+              className="px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border border-[#0f172a]/25 bg-white/80 hover:bg-white text-[#0f172a] uppercase shadow-sm hover:shadow-md transition-all cursor-pointer text-[10px] sm:text-[11px] tracking-widest font-normal inline-block"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               EXPLORE MY WORK
             </a>
           </motion.div>
 
-          {/* Bottom Right Monospaced Tagline */}
+          {/* Bottom Right Monospaced Tagline — hidden on mobile to avoid clutter */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-right font-mono text-[10px] md:text-[11px] tracking-[0.18em] text-[#64748b] uppercase leading-tight select-none"
+            className="hidden xs:block text-right font-mono text-[10px] md:text-[11px] tracking-[0.18em] text-[#64748b] uppercase leading-tight select-none"
           >
             <div>THE ENGINEER</div>
             <div>BEHIND RELIABLE</div>

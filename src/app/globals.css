@@ -3,6 +3,8 @@
 @theme {
   --font-albert: var(--font-albert), "Albert Sans", "sans-serif";
   --font-mono: var(--font-mono), "Fragment Mono", "monospace";
+  /* Extra-small breakpoint for very small phones (360px) */
+  --breakpoint-xs: 360px;
 }
 
 @layer base {
