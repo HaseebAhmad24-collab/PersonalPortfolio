@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Albert_Sans, Fragment_Mono, Space_Grotesk } from "next/font/google";
+import { Albert_Sans, Fragment_Mono } from "next/font/google";
 import "./globals.css";
 
 // Albert Sans — clean geometric sans for headings and body (matches reference site)
@@ -14,13 +14,6 @@ const fragmentMono = Fragment_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["400"],
-});
-
-// Space Grotesk — distinctive modern tech/engineering font
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -39,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${albertSans.variable} ${fragmentMono.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${albertSans.variable} ${fragmentMono.variable}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen flex flex-col" suppressHydrationWarning>
         <main className="flex-grow">
           {children}
