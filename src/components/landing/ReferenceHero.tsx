@@ -40,12 +40,12 @@ export default function ReferenceHero() {
   return (
     <div className="relative w-full min-h-screen bg-[#edf5ff] text-[#0f172a] flex flex-col" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>
       
-      {/* Profile Image — visible on all screens, smaller on mobile */}
+      {/* Profile Image — mobile only (hidden on sm+) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/profile_cutout.png"
         alt="Haseeb Ahmad"
-        className="select-none pointer-events-none block"
+        className="sm:hidden select-none pointer-events-none block"
         style={{
           position: 'absolute',
           bottom: '-10vh',
@@ -60,7 +60,7 @@ export default function ReferenceHero() {
           WebkitMaskImage: 'linear-gradient(to top, transparent 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.85) 20%, black 30%, black 100%)',
         }}
       />
-      {/* Same image, larger for sm+ screens (desktop experience) */}
+      {/* Profile Image — desktop/tablet only (sm+) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/profile_cutout.png"
