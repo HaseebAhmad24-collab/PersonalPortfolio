@@ -161,26 +161,26 @@ export default function AboutPage() {
               </div>
 
               {/* Persona Metadata Block */}
-              <div className="mt-5 flex flex-col items-start md:items-center">
+              <div className="mt-5 flex flex-col items-center text-center">
                 <h3 
-                  className="text-lg md:text-xl font-normal text-[#0f172a] tracking-tight"
+                  className="text-lg md:text-xl font-normal text-[#0f172a] tracking-tight text-center"
                   style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}
                 >
                   Haseeb Ahmad
                 </h3>
                 <p 
-                  className="text-xs tracking-wider text-blue-600 font-medium uppercase mt-0.5"
+                  className="text-xs tracking-wider text-blue-600 font-medium uppercase mt-0.5 text-center"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   DevOps Engineer · LuminahTech
                 </p>
 
-                <p className="text-xs text-[#64748b] max-w-xs mt-2.5 leading-relaxed">
+                <p className="text-xs text-[#64748b] max-w-xs mt-2.5 leading-relaxed text-center">
                   Specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security in Lahore, Pakistan.
                 </p>
 
                 {/* Micro Contact Pills */}
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center justify-center gap-2 mt-4">
                   <a 
                     href={contact.linkedin} 
                     target="_blank" 
