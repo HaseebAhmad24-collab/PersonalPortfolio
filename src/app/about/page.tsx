@@ -1648,7 +1648,7 @@ export default function AboutPage() {
                   className="text-lg sm:text-xl md:text-2xl text-[#334155] leading-relaxed font-normal"
                   style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}
                 >
-                  For me, DevOps is not about writing configurations in isolation. <strong className="font-medium text-[#0f172a]">It is about engineering total confidence.</strong>
+                  For me, DevOps is not about writing configurations in isolation. <strong className="font-semibold text-[#0f172a]" style={{ fontFamily: 'var(--font-albert), Albert Sans, sans-serif' }}>It is about engineering total confidence.</strong>
                 </p>
               </motion.div>
 
