@@ -22,12 +22,16 @@ const siteUrl = "https://www.haseebxdev.online";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Visit My Portfolio | Haseeb Ahmad",
-    template: "%s | Haseeb Ahmad",
+    default: "Haseeb Ahmad (haseebxdev) - DevOps & Cloud Platform Engineer",
+    template: "%s | Haseeb Ahmad (haseebxdev)",
   },
-  description: "DevOps Engineer specializing in CI/CD automation, Kubernetes, AWS cloud infrastructure, and scalable production deployments.",
+  description: "Official portfolio of Haseeb Ahmad (haseebxdev) — DevOps & Cloud Platform Engineer specializing in CI/CD automation, Kubernetes, AWS infrastructure, and scalable production systems.",
   keywords: [
+    "haseebxdev",
+    "haseeb x dev",
     "Haseeb Ahmad",
+    "Haseeb Ahmad DevOps",
+    "haseebxdev portfolio",
     "DevOps Engineer",
     "Cloud Engineer",
     "AWS",
@@ -53,16 +57,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Visit My Portfolio | Haseeb Ahmad",
-    description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security in Lahore, Pakistan.",
-    siteName: "Haseeb Ahmad — DevOps Engineer",
+    title: "Haseeb Ahmad (haseebxdev) - DevOps & Cloud Platform Engineer",
+    description: "Official portfolio of Haseeb Ahmad (haseebxdev) — DevOps & Cloud Platform Engineer specializing in CI/CD automation, Kubernetes, AWS infrastructure, and scalable production systems.",
+    siteName: "Haseeb Ahmad (haseebxdev)",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Haseeb Ahmad — DevOps Engineer Portfolio",
+        alt: "Haseeb Ahmad (haseebxdev) — DevOps & Cloud Platform Engineer",
       },
     ],
     locale: "en_US",
@@ -70,8 +74,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Visit My Portfolio | Haseeb Ahmad",
-    description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security.",
+    title: "Haseeb Ahmad (haseebxdev) - DevOps & Cloud Platform Engineer",
+    description: "Official portfolio of Haseeb Ahmad (haseebxdev) — DevOps & Cloud Platform Engineer.",
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -82,6 +86,44 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.haseebxdev.online/#person",
+      "name": "Haseeb Ahmad",
+      "alternateName": ["haseebxdev", "haseeb x dev"],
+      "url": "https://www.haseebxdev.online",
+      "image": "https://www.haseebxdev.online/profile_avatar.webp",
+      "jobTitle": "DevOps & Cloud Platform Engineer",
+      "sameAs": [
+        "https://www.linkedin.com/in/haseebahmad/",
+        "https://github.com/HaseebAhmad24-collab"
+      ],
+      "knowsAbout": [
+        "DevOps",
+        "Cloud Platform Engineering",
+        "AWS Cloud Infrastructure",
+        "Kubernetes & Docker",
+        "CI/CD Automation",
+        "Terraform & IaC",
+        "Linux Administration"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.haseebxdev.online/#website",
+      "url": "https://www.haseebxdev.online",
+      "name": "Haseeb Ahmad (haseebxdev)",
+      "description": "Official portfolio of Haseeb Ahmad (haseebxdev) — DevOps & Cloud Platform Engineer.",
+      "publisher": {
+        "@id": "https://www.haseebxdev.online/#person"
+      }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,6 +131,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${albertSans.variable} ${fragmentMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased min-h-screen flex flex-col" suppressHydrationWarning>
         <CustomCursor />
         <main className="flex-grow">
