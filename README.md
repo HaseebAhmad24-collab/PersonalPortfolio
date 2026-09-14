@@ -2,7 +2,7 @@
 
 # ⚡ Haseeb Ahmad — DevOps & Cloud Platform Portfolio
 
-[![Live Production](https://img.shields.io/badge/Production-haseebxdev.online-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://haseebxdev.online)
+[![Live Production](https://img.shields.io/badge/Production-www.haseebxdev.online-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://www.haseebxdev.online)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -13,7 +13,7 @@
   <strong>An ultra-performant, blueprint-engineered personal portfolio designed for Cloud, DevOps, and Platform Engineering showcases.</strong>
 </p>
 
-[🌐 Live Demo](https://haseebxdev.online) • [📄 Resume](https://haseebxdev.online/resume) • [💼 LinkedIn](https://www.linkedin.com/in/haseebahmad24/) • [📬 Get in Touch](mailto:contact@haseebxdev.online)
+[🌐 Live Demo](https://www.haseebxdev.online) • [📄 Resume](https://www.haseebxdev.online/resume) • [💼 LinkedIn](https://www.linkedin.com/in/haseebahmad/) • [📬 Get in Touch](mailto:contact@haseebxdev.online)
 
 ---
 
@@ -162,8 +162,8 @@ npm run start
 
 **Haseeb Ahmad** — Cloud & DevOps Platform Engineer
 
-- **Website:** [haseebxdev.online](https://haseebxdev.online)
-- **LinkedIn:** [linkedin.com/in/haseebahmad24](https://www.linkedin.com/in/haseebahmad24/)
+- **Website:** [www.haseebxdev.online](https://www.haseebxdev.online)
+- **LinkedIn:** [linkedin.com/in/haseebahmad](https://www.linkedin.com/in/haseebahmad/)
 - **GitHub:** [@HaseebAhmad24-collab](https://github.com/HaseebAhmad24-collab)
 - **Email:** [contact@haseebxdev.online](mailto:contact@haseebxdev.online)
 

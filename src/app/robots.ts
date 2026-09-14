@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://haseebxdev.online/sitemap.xml",
+    sitemap: "https://www.haseebxdev.online/sitemap.xml",
   };
 }

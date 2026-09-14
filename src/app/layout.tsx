@@ -17,8 +17,7 @@ const fragmentMono = Fragment_Mono({
   weight: ["400"],
 });
 
-// Use the live production domain so OpenGraph image URLs never point to an unresolvable domain
-const siteUrl = "https://haseebxdev.vercel.app";
+const siteUrl = "https://www.haseebxdev.online";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

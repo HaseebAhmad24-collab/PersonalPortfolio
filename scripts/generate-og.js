@@ -132,7 +132,7 @@ async function generateOgImage() {
       <!-- Bottom Domain Pill -->
       <g transform="translate(0, 340)">
         <text x="0" y="18" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" letter-spacing="1.5" fill="#64748b">
-          https://haseebxdev.online
+          https://www.haseebxdev.online
         </text>
       </g>
     </g>
