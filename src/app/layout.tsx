@@ -17,10 +17,16 @@ const fragmentMono = Fragment_Mono({
   weight: ["400"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://haseebxdev.vercel.app");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://haseebxdev.vercel.app"
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Visit My Portfolio | Haseeb Ahmad",
     template: "%s | Haseeb Ahmad",
@@ -39,7 +45,7 @@ export const metadata: Metadata = {
     "Lahore",
     "Pakistan",
   ],
-  authors: [{ name: "Haseeb Ahmad", url: "https://haseebxdev.online" }],
+  authors: [{ name: "Haseeb Ahmad" }],
   creator: "Haseeb Ahmad",
   publisher: "Haseeb Ahmad",
   formatDetection: {
@@ -53,15 +59,15 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Visit My Portfolio",
+    title: "Visit My Portfolio | Haseeb Ahmad",
     description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security in Lahore, Pakistan.",
-    url: "https://haseebxdev.online",
     siteName: "Haseeb Ahmad — DevOps Engineer",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: "Haseeb Ahmad — DevOps Engineer Portfolio",
       },
     ],
@@ -70,12 +76,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Visit My Portfolio",
+    title: "Visit My Portfolio | Haseeb Ahmad",
     description: "DevOps Engineer specializing in multi-environment release automation, Kubernetes orchestrations, and cloud security.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://haseebxdev.online",
+    canonical: "/",
   },
 };
 
