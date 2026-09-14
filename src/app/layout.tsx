@@ -18,7 +18,9 @@ const fragmentMono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://haseebxdev.online"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://haseebxdev.vercel.app"
+  ),
   title: {
     default: "Visit My Portfolio | Haseeb Ahmad",
     template: "%s | Haseeb Ahmad",
